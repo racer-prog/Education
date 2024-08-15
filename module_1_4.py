@@ -1,0 +1,5 @@
+my_string = str(input('Введите строку: '))
+print(f'В строке {my_string} {len(my_string)} символов')
+print(f' ВЕРХНИЙ РЕГИСТР: {my_string.upper()} ')
+print(f' нижний регистр: {my_string.lower()} ')
+print(f' без пробелов: {my_string.replace(' ','')} ')
