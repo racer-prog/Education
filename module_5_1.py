@@ -13,4 +13,6 @@ class House:
 
 if __name__ == "__main__":
     my_house = House("IT_PARK",17)
+    guest_house = House("Park_for_you", 5)
     my_house.go_to(17)
+    guest_house.go_to(7)
