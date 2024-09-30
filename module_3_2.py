@@ -1,5 +1,3 @@
-from itertools import filterfalse
-from logging.config import stopListening
 
 domain = ['.ru','.com','.net']
 
