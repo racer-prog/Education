@@ -1,5 +1,4 @@
-#from module_5_1 import House
-#from module_5_3 import House_
+
 
 
 class House():
@@ -21,7 +20,7 @@ class House():
     def __del__(self, *args):
         print(f"{self.name} снесён, но он останется в истории")
 
-        #return self.houses_history
+
 
 
 
