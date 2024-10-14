@@ -1,26 +1,21 @@
 class Vehicle: #любой транспорт
 
-    owner = str #владелец
-    _model = str
-    __engine_power = int
-    __color = str
-    __COLOR_VARIANTS = []
+    # owner = str #владелец
+    # _model = str
+    # __engine_power = int
+    # __color = str
+    __COLOR_VARIANTS = ['blue', 'red', 'green', 'black', 'white']
 
     def __init__(self, owner_:str, model_:str, color_:str, engine_power_:int):
         self.owner = owner_
         self._model = model_
         self.__color = color_
         self.__engine_power = engine_power_
+        __COLOR_VARIANTS = self.__COLOR_VARIANTS
 
     def set_color(self, new_color:str):
-        print(new_color, self.__color)
-        print(str(any(self.__COLOR_VARIANTS)).lower())
-        new_color_ = str
-        for color_ in self.__COLOR_VARIANTS:
-            if new_color.lower() == str(color_).lower():
-                new_color_ = new_color.lower()
-        if new_color_ in self.__COLOR_VARIANTS:
-            self.__color = new_color_
+        if new_color.lower() in self.__COLOR_VARIANTS:
+            self.__color = new_color
         else:
             print(f"Нельзя сменить цвет на {new_color}")
 
@@ -45,6 +40,7 @@ class Sedan(Vehicle): #седан, наследник Vehicle
 if __name__ == "__main__":
     # Текущие цвета
     __COLOR_VARIANTS = ['blue', 'red', 'green', 'black', 'white']
+
     vehicle1 = Sedan('Fedos', 'Toyota Mark II', 'blue', 500)
 
     # Изначальные свойства
