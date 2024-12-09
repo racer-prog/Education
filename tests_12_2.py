@@ -44,9 +44,9 @@ class Tournament:
         return finishers
 
 class TournamentTest(TestCase):
-
-    def setUpClass(self):
-        self.all_results = {}
+    @classmethod
+    def setUpClass(cls):
+        cls.all_results = {}
 
 
     def setUp(self):
@@ -54,11 +54,10 @@ class TournamentTest(TestCase):
         self.runner_2 = Runner("Андрей", 9)
         self.runner_3 = Runner("Ник", 3)
 
-
-
-    def tearDownClass(self):
-        for key in self.all_results.keys():
-            print(self.all_results[key])
+    @classmethod
+    def tearDownClass(cls):
+        for key in cls.all_results.keys():
+            print(cls.all_results[key])
 
     def test_1(self):
         self.obj_1 = Tournament(90,self.runner_1,self.runner_3)
