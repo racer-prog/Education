@@ -1,7 +1,5 @@
 from unittest import TestCase
 
-from nuitka.nodes.shapes.BuiltinTypeShapes import pow_shapes_set
-
 
 class Runner:
     def __init__(self, name, speed=5):
@@ -56,27 +54,40 @@ class TournamentTest(TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        for key in cls.all_results.keys():
-            print(cls.all_results[key])
+        for i in cls.all_results.keys():
+            print(cls.all_results[i])
 
     def test_1(self):
         self.obj_1 = Tournament(90,self.runner_1,self.runner_3)
-        result = self.obj_1.start()
-        self.all_results.update(result)
-        self.assertTrue(self.all_results.popitem(),"Ник")
+        result_1 = self.obj_1.start()
+        dict_ = {}
+        for i in result_1.keys():
+            dict_[i] = str(result_1[i])
+        self.all_results["test1"] = dict_
+        # print(list(dict_.items())[-1][1])
+        self.assertTrue(list(dict_.items())[-1][1],"Ник")
 
 
     def test_2(self):
         self.obj_2 = Tournament(90,self.runner_2,self.runner_3)
-        result = self.obj_2.start()
-        self.all_results.update(result)
-        self.assertTrue(self.all_results.popitem(), "Ник")
+        result_2 = self.obj_2.start()
+        dict_ = {}
+        for i in result_2.keys():
+            dict_[i] = str(result_2[i])
+        self.all_results["test2"] = dict_
+        # print(list(dict_.items())[-1][1])
+        self.assertTrue(list(dict_.items())[-1][1], "Ник")
+
 
     def test_3(self):
         self.obj_3 = Tournament(90,self.runner_1,self.runner_2,self.runner_3)
-        result = self.obj_3.start()
-        self.all_results.update(result)
-        self.assertTrue(self.all_results.popitem(), "Ник")
+        result_3 = self.obj_3.start()
+        dict_ = {}
+        for i in result_3.keys():
+            dict_[i] = str(result_3[i])
+        self.all_results["test3"] = dict_
+        # print(list(dict_.items())[-1][1])
+        self.assertTrue(list(dict_.items())[-1][1], "Ник")
 
 
 
