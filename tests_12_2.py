@@ -64,6 +64,20 @@ class TournamentTest(TestCase):
         self.obj_1 = Tournament(90,self.runner_1,self.runner_3)
         result = self.obj_1.start()
         self.all_results.update(result)
+        self.assertTrue(self.all_results.popitem(),"Ник")
+
+
+    def test_2(self):
+        self.obj_2 = Tournament(90,self.runner_2,self.runner_3)
+        result = self.obj_2.start()
+        self.all_results.update(result)
+        self.assertTrue(self.all_results.popitem(), "Ник")
+
+    def test_3(self):
+        self.obj_3 = Tournament(90,self.runner_1,self.runner_2,self.runner_3)
+        result = self.obj_3.start()
+        self.all_results.update(result)
+        self.assertTrue(self.all_results.popitem(), "Ник")
 
 
 
