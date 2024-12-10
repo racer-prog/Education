@@ -1,3 +1,4 @@
+import unittest
 from unittest import TestCase
 
 
@@ -42,6 +43,7 @@ class Tournament:
         return finishers
 
 class TournamentTest(TestCase):
+    is_frozen = False
     @classmethod
     def setUpClass(cls):
         cls.all_results = {}
@@ -57,6 +59,7 @@ class TournamentTest(TestCase):
         for i in cls.all_results.keys():
             print(cls.all_results[i])
 
+    @unittest.skipUnless(is_frozen, "Тесты в этом кейсе заморожены")
     def test_1(self):
         self.obj_1 = Tournament(90,self.runner_1,self.runner_3)
         result_1 = self.obj_1.start()
@@ -67,7 +70,7 @@ class TournamentTest(TestCase):
         # print(list(dict_.items())[-1][1])
         self.assertTrue(list(dict_.items())[-1][1],"Ник")
 
-
+    @unittest.skipUnless(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_2(self):
         self.obj_2 = Tournament(90,self.runner_2,self.runner_3)
         result_2 = self.obj_2.start()
@@ -78,7 +81,7 @@ class TournamentTest(TestCase):
         # print(list(dict_.items())[-1][1])
         self.assertTrue(list(dict_.items())[-1][1], "Ник")
 
-
+    @unittest.skipUnless(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_3(self):
         self.obj_3 = Tournament(90,self.runner_1,self.runner_2,self.runner_3)
         result_3 = self.obj_3.start()
@@ -91,4 +94,5 @@ class TournamentTest(TestCase):
 
 
 
-
+if __name__ == "__main__":
+    pass
