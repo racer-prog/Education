@@ -1,0 +1,10 @@
+WARNING -> Неверное имя для Runner. Имя может быть только строкой, сейчас: int
+Traceback (most recent call last):
+  File "/home/it_prog/PycharmProjects/Education/tests_12_3.py", line 51, in test_run
+    raise TypeError(f"Имя может быть только строкой, сейчас: {type(self.obj_test2.name).__name__}")
+TypeError: Имя может быть только строкой, сейчас: int
+WARNING -> Неверная скорость для Runner. Скорость не может быть меньше нуля, сейчас -5
+Traceback (most recent call last):
+  File "/home/it_prog/PycharmProjects/Education/tests_12_3.py", line 38, in test_walk
+    raise ValueError (f"Скорость не может быть меньше нуля, сейчас {self.obj_test1.speed}")
+ValueError: Скорость не может быть меньше нуля, сейчас -5

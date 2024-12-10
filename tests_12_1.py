@@ -1,5 +1,6 @@
 from unittest import TestCase
 import unittest
+import logging
 
 
 class Runner:
@@ -22,10 +23,13 @@ class RunnerTest(TestCase):
 
     @unittest.skipUnless(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_walk(self):
-        self.obj_test1 = Runner("Name1")
-        for i in range(10):
-            self.obj_test1.walk()
-        self.assertEqual(self.obj_test1.distance, 50, "Should be 50")
+
+            self.obj_test1 = Runner("Name1")
+            for i in range(10):
+                self.obj_test1.walk()
+            self.assertEqual(self.obj_test1.distance, 50, "Should be 50")
+
+
 
     @unittest.skipUnless(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_run(self):

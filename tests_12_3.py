@@ -1,4 +1,3 @@
-from math import sqrt
 from unittest import TestCase
 import unittest
 import logging
@@ -32,24 +31,28 @@ class RunnerTest(TestCase):
     @unittest.skipUnless(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_walk(self):
             try:
-                self.obj_test1 = Runner("Name1",-10)
+                self.obj_test1 = Runner("Name1",-5)
+
+                if self.obj_test1.speed < 0:
+                    raise ValueError (f"Скорость не может быть меньше нуля, сейчас {self.obj_test1.speed}")
                 for i in range(10):
                     self.obj_test1.walk()
                 self.assertEqual(self.obj_test1.distance, 50, "Should be 50")
                 logging.info('"test_walk" выполнен успешно')
-                # sqrt(self.obj_test1.speed)
-            except AssertionError:
-                print(f'Positive number is required speed for Runner {self.obj_test1.name}...')
-                logging.warning(f"Неверная скорость для Runner.")
-
-
+            except ValueError as v_err:
+                logging.warning(f"Неверная скорость для Runner. {v_err}", exc_info=True)
 
     @unittest.skipUnless(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_run(self):
-        self.obj_test2 = Runner("Name2")
-        for i in range(10):
-            self.obj_test2.run()
-        self.assertEqual(self.obj_test2.distance, 100, "Should be 100")
+        try:
+            self.obj_test2 = Runner(2)
+            if type(self.obj_test2.name) != str:
+                raise TypeError(f"Имя может быть только строкой, сейчас: {type(self.obj_test2.name).__name__}")
+            for i in range(10):
+                self.obj_test2.run()
+            self.assertEqual(self.obj_test2.distance, 100, "Should be 100")
+        except TypeError as t_err:
+            logging.warning(f"Неверное имя для Runner. {t_err}", exc_info=True)
 
     @unittest.skipUnless(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_challenge(self):
